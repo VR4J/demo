@@ -21,6 +21,7 @@ public class DemoApplication implements CommandLineRunner {
     public void run(String... args) {
 		Person person = new Person("Max", "Verstappen");
 		
+		// Create or read
 		repository.getPersonByForename("Max")
 			.ifPresentOrElse(
 					System.out::println,
