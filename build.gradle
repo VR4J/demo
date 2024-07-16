@@ -36,6 +36,7 @@ tasks.named('test') {
 }
 
 bootBuildImage {
+	// Adjust the following for personal convenience
 	imageName = 'vr4j/demo:latest'
 	publish = true
 
