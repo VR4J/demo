@@ -22,7 +22,7 @@ public class DemoApplication implements CommandLineRunner {
 		Person person = new Person("Max", "Verstappen");
 		
 		// Create or read
-		repository.getPersonByForename("Max")
+		repository.getFirstPersonByForename("Max")
 			.ifPresentOrElse(
 					System.out::println,
 					() -> System.out.println(

@@ -25,14 +25,8 @@ repositories {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-webflux'
-	implementation 'org.springframework.boot:spring-boot-starter-security'
-	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
 	
-	compileOnly 'org.projectlombok:lombok'
-	annotationProcessor 'org.projectlombok:lombok'
-
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
@@ -42,15 +36,6 @@ tasks.named('test') {
 }
 
 bootBuildImage {
-	builder = 'paketobuildpacks/builder-jammy-base:latest'
-
-	environment = [
-			'LANG': 'en_US.utf8',
-			'BP_JVM_VERSION': '21.0.3',
-			'BP_NATIVE_IMAGE': 'true',
-			'BP_NATIVE_IMAGE_BUILD_ARGUMENTS': '--no-fallback -march=compatibility'
-	]
-
 	imageName = 'vr4j/demo:latest'
 	publish = true
 
