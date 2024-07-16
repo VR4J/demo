@@ -29,6 +29,15 @@ tasks.named('test') {
 }
 
 bootBuildImage {
+	builder = 'paketobuildpacks/builder-jammy-base:latest'
+
+	environment = [
+			'LANG': 'en_US.utf8',
+			'BP_JVM_VERSION': '21.0.3',
+			'BP_NATIVE_IMAGE': 'true',
+			'BP_NATIVE_IMAGE_BUILD_ARGUMENTS': '--no-fallback -march=compatibility'
+	]
+
 	imageName = 'vr4j/demo:latest'
 	publish = true
 
