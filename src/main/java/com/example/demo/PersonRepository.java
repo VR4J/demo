@@ -7,6 +7,6 @@ import java.util.Optional;
 
 public interface PersonRepository extends MongoRepository<Person, String> {
     
-    @Query(value = "{ 'forename': ?0 }")
+    @Query(value = "{ 'forename': { $ne: ?0 } }")
     Optional<Person> getPersonByForename(String forename);
 }
