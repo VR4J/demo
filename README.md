@@ -2,10 +2,13 @@
 
 Repository created to reproduce @Query annotation **with sorting** not working in a native image.
 
-### Prerequisits
+### Quick start
+You can use the image generated via the Github Actions pipeline via `docker run --network=host vr4j/demo`.
+
+### Setup
 1. Start local mongo database on port 27017 (eg. `docker run -p 27017:27017 mongo:latest`)
 
-Steps to reproduce:
+### Build
 1. Checkout repository
 2. `./gradlew bootBuildImage`
 3. `docker run --network=host demo:0.0.1-SNAPSHOT`
