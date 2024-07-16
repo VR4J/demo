@@ -7,27 +7,27 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class DemoApplication implements CommandLineRunner {
 	
-	private final PersonRepository repository;
+    private final PersonRepository repository;
 	
-	public DemoApplication(PersonRepository repository) {
-		this.repository = repository;
-	}
+    public DemoApplication(PersonRepository repository) {
+        this.repository = repository;
+    }
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
         SpringApplication.run(DemoApplication.class, args);
     }
  
     @Override
     public void run(String... args) {
-		Person person = new Person("Max", "Verstappen");
+	Person person = new Person("Max", "Verstappen");
 		
-		// Create or read
-		repository.getFirstPersonByForename("Max")
-			.ifPresentOrElse(
-					System.out::println,
-					() -> System.out.println(
-							repository.save(person)
-					)
-			);
+	// Create or read
+	repository.getFirstPersonByForename("Max")
+		.ifPresentOrElse(
+	    	    System.out::println,
+		    () -> System.out.println(
+		        repository.save(person)
+		    )
+		);
     }
 }
